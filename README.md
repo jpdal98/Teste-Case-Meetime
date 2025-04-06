@@ -35,24 +35,24 @@ Este projeto é uma API para integração com o HubSpot, utilizando OAuth2 para 
 
 1. Após concluir a criação do seu aplicativo público na plataforma da Hubspot, clique nele.
 2. Em seguida acesse a opção "Informações básicas" listada na lateral.
-![Imagem Exemplo](imagens/img0.png)
+![Imagem Exemplo](Documentation/Images/img0.png)
 3. Em seguida acesse a aba "Autenticação".
-![Imagem Exemplo](imagens/img00.png)
+![Imagem Exemplo](Documentation/Images/img00.png)
 4. Ao acessar esta aba, você irá se deparar com a seguinte tela:
-![Imagem Exemplo](imagens/img1.png)
+![Imagem Exemplo](Documentation/Images/img1.png)
 5. Agora vá ate a barra de pesquisa do windows e digite "Editar as variaveis de ambiente do sistema", em seguida clique em "enter"
 6. Agora selecione a opção "variaveis de ambiente". Ao clicar nessa opção irá aparecer a seguinte tela:
-![Imagem Exemplo](imagens/img2.png)
+![Imagem Exemplo](Documentation/Images/img2.png)
 7. Agora em "Variaveis de usuário SEU_USUARIO" iremos criar duas variaveis de ambiente, "HUBSPOT_CLIENT_ID" e "HUBSPOT_CLIENT_SECRET"
 8. Ainda em "Variaveis de usuário SEU_USUARIO", clique em na opção "Novo..."
 9. Ao clicar nessa opção irá aparecer a seguinte imagem:
-![Imagem Exemplo](imagens/img3.png)
+![Imagem Exemplo](Documentation/Images/img3.png)
 10. No campo "nome da variável" você irá preencher com HUBSPOT_CLIENT_ID
 11. Agora no campo "valor da variável" iremos colocar o valor que aparecer neste campo aplicativo. No meu caso apareceu esse valor que mostra na imagem, mas cada aplicativo tem o seu, então o valor a ser utilizado será o que estiver no seu aplicativo.
-![Imagem Exemplo](imagens/img4.png)
+![Imagem Exemplo](Documentation/Images/img4.png)
 12. Após preencher os dois campos, clique em "ok"
 13 Agora iremos repetir o mesmo processo para criar a variavel de ambiente HUBSPOT_CLIENT_SECRET. HUBSPOT_CLIENT_SECRET será o "nome da variável". Já "valor da variável" iremos utilizar o indicado na imagem. Para ter acesso ao valor, basta clicar em "Mostrar".
-![Imagem Exemplo](imagens/img5.png)
+![Imagem Exemplo](Documentation/Images/img5.png)
 14. Após preencher os dois campos, clique em "ok" para fechar a janela
 15. Clique "ok" novamente. Desta vez para fechar a janela de variaveis de ambiente
 16. Em seguida, clique em "aplicar" e depois "ok" novamente.
@@ -68,22 +68,23 @@ Após ter criado uma conta free na plataforma do [ngrok](https://ngrok.com/) com
 2. Após baixar o ngrok, concender a permissão no antivirus ou desabilitar o antivirus, extraia o arquivo .zip
 3. Em seguida, vá até a barra de pesquisa do windows e digite "Windows PowerShell". Deixe ele aberto em segundo plano.
 4. Agora acesse sua conta que voce criou no site do [ngrok](https://ngrok.com/). Ao logar, irá aparecer a seguinte tela:
-![Imagem Exemplo](imagens/img6.png)
+![Imagem Exemplo](Documentation/Images/img6.png)
 5. Nas opções listadas a esquerda, acesse "Your Authtoken" ou "Seu Authtoken"
-![Imagem Exemplo](imagens/img7.png)
+![Imagem Exemplo](Documentation/Images/img7.png)
 6. Ao entrar nessa aba, voce irá se deparar com um campo contendo o seu token que autoriza o uso do ngrok na sua maquina
-![Imagem Exemplo](imagens/img8.png)
+![Imagem Exemplo](Documentation/Images/img8.png)
 7. Clique no olho magico para exibir seu token
 8. Em seguida, mais abaixo terá o seguinte comando: "ngrok config add-authtoken $YOUR_AUTHTOKEN". Copie o comando.
+
 **IMPORTANTE**: No lugar de $YOUR_AUTHTOKEN, ficará seu token de acesso. Se voce clicou no olho magico para exibir a senha, então automaticamente a variavel em questão será preenchida com o valor do seu token. Exemplo:
-![Imagem Exemplo](imagens/img9.png)
-![Imagem Exemplo](imagens/img10.png)
+![Imagem Exemplo](Documentation/Images/img9.png)
+![Imagem Exemplo](Documentation/Images/img10.png)
 9. Após copiar o comando, volte para o Powershell e cole o comando.
 10. Em seguida aperte "enter".
 11. Feito isso, você verá uma mensagem de sucesso confirmando que o token foi salvo em sua maquina. Caso contrário, verifique se o comando foi copiado e colado corretamente como exibido na plataforma
 12. Por fim, iremos executar o ngrok. Para isso digite o seguinte comando: "& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout".
 13. Ao digitar esse comando, aperte "enter". Você deverá ver algo similar a isso:
-![Imagem Exemplo](imagens/img11.png)
+![Imagem Exemplo](Documentation/Images/img11.png)
 **IMPORTANTE**: Atente-se ao caminho do seu ngrok. Se você observar, para o comando funcionar você precisa fornecer a localização exata do seu ngrok em sua maquina, do contrário o comando não irá rodar o ngrok. No meu caso o ngrok esta em C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe
 14. Feito isso, ngrok agora está rodando em sua maquina.
 **IMPORTANTE**: Após executar o ultimo comando, não feche o powershell ou aperte ctrl+c. Ngrok só cria um túnel de acesso a maquina local durante sua execução. Então caso voce feche o powershell ou mate o processo de execução do ngrok com o ctrl+c, voce terá que executar novamente o comando "& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout" para o ngrok voltar a criar o túnel.
@@ -94,40 +95,42 @@ Após ter configurado o ngrok localmente, iremos configurar o nosso aplicativo p
 
 1. Clique no seu aplicativo público.
 2. Em seguida acesse a opção "Informações básicas" listada na lateral.
-![Imagem Exemplo](imagens/img0.png)
+![Imagem Exemplo](Documentation/Images/img0.png)
 3. Em seguida acesse a aba "Autenticação".
-![Imagem Exemplo](imagens/img00.png)
+![Imagem Exemplo](Documentation/Images/img00.png)
 4. Ao acessar esta aba, rolando um pouco mais para baixo você irá se deparar com o seguinte campo:
-![Imagem Exemplo](imagens/img12.png)
+![Imagem Exemplo](Documentation/Images/img12.png)
 5. Cole a seguinte url: localhost:8080/api/hubspot/callback
 6. Em seguida, rolando mais para baixo você irá se deparar com essa parte:
-![Imagem Exemplo](imagens/img13.png)
+![Imagem Exemplo](Documentation/Images/img13.png)
 7. Agora clique no botão "Adicionar novo escopo"
 8. procure pelos escopos: "crm.objects.contacts.read" e "crm.objects.contacts.write".
 9. Após encontra-los, selecione ambos e salve-os. Ao fazer isso, eles serão listados como na imagem anterior.
 **IMPORTANTE**: Iremos ultiliza-los na função de criar contato, então é fundamental definir essas funções como parte do escopo do nosso aplicativo.
 10. Feito isso, na parte inferior da tela irá aparecer a seguinte opção:
-![Imagem Exemplo](imagens/img14.png)
+![Imagem Exemplo](Documentation/Images/img14.png)
 11. Clique em "Salvar alterações"
 12. Feito isso, role para cima até aparecer as opções iniciais listadas na barra lateral. Em seguida clique em "Webhooks"
-![Imagem Exemplo](imagens/img15.png)
+![Imagem Exemplo](Documentation/Images/img15.png)
 13. Após entrar na tela de Webhooks, você verá um campo vazio que espera uma url. nesse campo iremos colocar a url que dará acesso ao endpoint da nossa API
 14. Incialmente iremos abrir o Powershell que estava em segundo plano
 15. Em seguida iremos copiar a url que o comando: "& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout" nos forneceu.
-![Imagem Exemplo](imagens/img16.png)
+![Imagem Exemplo](Documentation/Images/img16.png)
 17. Após copiar a url iremos concatenar ela com seguinte caminho: /api/hubspot/webhook
 18. Desse modo, a url final que devemos colocar na plataforma será: SUA_URL_GERADA_NO_NGROK/api/hubspot/webhook. no meu caso ficou https://dea5-170-150-203-129.ngrok-free.app/api/hubspot/webhook
 19. Após monstar a url, cole-a no campo que espera a url. Em seguida salve as alterações
+
 **IMPORTANTE**: Essa url é dinamica, ou seja, sempre que voce executar o comando que faz o ngrok rodar, ele irá gerar uma nova url. Por isso destaquei a importancia de deixar o ngrok aberto/minimizado anteriormente. Sempre que voce fechar o powershell, terá que fazer todo esse processo, inclusive o de concatenar a url nova gerada ao restante da url que corresponde a da API.
 20. Ao salvar a url no campo. o botão criar assinatura será liberado. clique nele
-![Imagem Exemplo](imagens/img17.png)
+![Imagem Exemplo](Documentation/Images/img17.png)
 21. Ao clicar nele, irá aparecer para você a seguinte aba:
-![Imagem Exemplo](imagens/img18.png)
+![Imagem Exemplo](Documentation/Images/img18.png)
 22. Nela iremos escolher qual objeto queremos e ação queremos que o webhook monitore. Como estamos lidando com criação de contatos, escolheremos no primeiro campo a opção "contato" e no segundo campo a opção "criado"
-![Imagem Exemplo](imagens/img19.png)
+![Imagem Exemplo](Documentation/Images/img19.png)
 23. Agora clique em assinar. Feito isso, sua tela estará assim:
-![Imagem Exemplo](imagens/img20.png)
+![Imagem Exemplo](Documentation/Images/img20.png)
 24. Agora selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique clique em "ativar". Feito isso, seu aplicativo agora passará a monitorar eventos relacionados a criação de contato.
+
 **IMPORTANTE**: Caso voce tenha fechado o powershell e perdido a url do ngrok e precise mudar a url que está no seu aplicativo, voce primeiro precisa pausar a assinatura. Só assim o Hubspot permite com que você a url. Para isso selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique em "pausar". Feito isso voce poderá alterar a url. Ao alterar a url, clique em ativar novamente para restabelecer a função do seu aplicativo de monitoramento
 
 ### HubSpot - Conta de teste
