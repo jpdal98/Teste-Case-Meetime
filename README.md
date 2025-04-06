@@ -41,7 +41,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 2. Criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/).
 3. Criar uma conta gratuita de desenvolvedor na plataforma da [HubSpot](https://app.hubspot.com/login).
 4. Criar um aplicativo público com base na documentação da [HubSpot](https://developers.hubspot.com/docs/guides/apps/public-apps/overview).
-5. Instalar algum ferramente de consumo de API. Sugestão: [Postman](https://www.postman.com/downloads/).
+5. Instalar algum ferramenta para consumo de API. Sugestão: [Postman](https://www.postman.com/downloads/).
 
 ### Variáveis de Ambiente
 
