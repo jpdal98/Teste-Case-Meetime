@@ -15,6 +15,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
    - [HubSpot - Aplicativo Público](#hubspot---aplicativo-público)
    - [HubSpot - Conta de Teste](#hubspot---conta-de-teste)
 4. [Execução da API](#execução-da-api)
+5. [Melhorias Futuras](#melhorias-futuras)
 
 ## Funcionalidades
 
@@ -240,29 +241,21 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
    ![Imagem Exemplo](Documentation/Images/img30.png)
    ![Imagem Exemplo](Documentation/Images/img31.png)
 
-## Considerações finais:
+## Melhorias Futuras:
 
-### Melhorias Futuras
-
-1. Documentação da API
-
+### 1. Documentação da API
 Atualmente, não há uma documentação visível da API. Pensando em um possível crescimento dela, o ideal seria utilizar ferramentas como Swagger ou Spring REST Docs para gerar uma documentação interativa da API. Isso ajudaria os desenvolvedores a entenderem melhor os endpoints disponíveis e como interagir com eles.
 
-2. Organização e Modularização
-
+### 2. Organização e Modularização
 À medida que o projeto crescer, pode ser necessário refatorar algumas responsabilidades para diferentes módulos ou pacotes a fim de manter o código limpo e organizado.
-
 Exemplo: No caso do projeto atual, talvez no futuro seja necessário modularizar ainda mais a aplicação, separando as responsabilidades de forma mais detalhada. Isso pode incluir mover SignatureService, OAuthService e ContactService para pacotes separados com interfaces e implementações distintas.
 
-3. Testes Automatizados
-
+### 3. Testes Automatizados
 Não há menção de testes automatizados no projeto. Essa decisão foi tomada devido ao fato de o projeto ser pequeno. Contudo, à medida que o projeto crescer, seria interessante implementar testes unitários e testes de integração. Ambos ajudariam a garantir que a lógica da aplicação permanecesse sólida e funcional.
 
-4. Respostas de Erro Mais Informativas
-
+### 4. Respostas de erro mais especificas e informativas
 Apesar do projeto ter uma classe global que captura os erros e os informa ao usuário, ela ainda é bem genérica. O ideal seria expandir essa classe para capturar uma variedade maior de erros, com mensagens personalizadas mais detalhadas e informativas, proporcionando uma experiência mais clara e útil para o usuário.
 
-5. Segurança da API (Autenticação e Autorização)
-
+### 5. Segurança da API (Autenticação e Autorização)
 Por se tratar de um projeto que só permite o uso das suas funções principais (como /create-contact e /webhooks) através de um token validado em uma plataforma externa (HubSpot), não se viu a necessidade de implementar o Spring Security na API. Contudo, essa decisão pode mudar dependendo do crescimento e da evolução das necessidades da API no futuro.
 
