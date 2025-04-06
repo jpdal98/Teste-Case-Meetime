@@ -75,6 +75,7 @@ Após ter criado uma conta free na plataforma do [ngrok](https://ngrok.com/) com
 ![Imagem Exemplo](Documentation/Images/img8.png)
 7. Clique no olho magico para exibir seu token
 8. Em seguida, mais abaixo terá o seguinte comando: "ngrok config add-authtoken $YOUR_AUTHTOKEN". Copie o comando.
+
 **IMPORTANTE**: No lugar de $YOUR_AUTHTOKEN, ficará seu token de acesso. Se voce clicou no olho magico para exibir a senha, então automaticamente a variavel em questão será preenchida com o valor do seu token. Exemplo:
 ![Imagem Exemplo](Documentation/Images/img9.png)
 ![Imagem Exemplo](Documentation/Images/img10.png)
@@ -118,6 +119,7 @@ Após ter configurado o ngrok localmente, iremos configurar o nosso aplicativo p
 17. Após copiar a url iremos concatenar ela com seguinte caminho: /api/hubspot/webhook
 18. Desse modo, a url final que devemos colocar na plataforma será: SUA_URL_GERADA_NO_NGROK/api/hubspot/webhook. no meu caso ficou https://dea5-170-150-203-129.ngrok-free.app/api/hubspot/webhook
 19. Após monstar a url, cole-a no campo que espera a url. Em seguida salve as alterações
+
 **IMPORTANTE**: Essa url é dinamica, ou seja, sempre que voce executar o comando que faz o ngrok rodar, ele irá gerar uma nova url. Por isso destaquei a importancia de deixar o ngrok aberto/minimizado anteriormente. Sempre que voce fechar o powershell, terá que fazer todo esse processo, inclusive o de concatenar a url nova gerada ao restante da url que corresponde a da API.
 20. Ao salvar a url no campo. o botão criar assinatura será liberado. clique nele
 ![Imagem Exemplo](Documentation/Images/img17.png)
@@ -128,6 +130,7 @@ Após ter configurado o ngrok localmente, iremos configurar o nosso aplicativo p
 23. Agora clique em assinar. Feito isso, sua tela estará assim:
 ![Imagem Exemplo](Documentation/Images/img20.png)
 24. Agora selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique clique em "ativar". Feito isso, seu aplicativo agora passará a monitorar eventos relacionados a criação de contato.
+
 **IMPORTANTE**: Caso voce tenha fechado o powershell e perdido a url do ngrok e precise mudar a url que está no seu aplicativo, voce primeiro precisa pausar a assinatura. Só assim o Hubspot permite com que você a url. Para isso selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique em "pausar". Feito isso voce poderá alterar a url. Ao alterar a url, clique em ativar novamente para restabelecer a função do seu aplicativo de monitoramento
 
 ### HubSpot - Conta de teste
