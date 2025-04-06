@@ -29,9 +29,9 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 3. Criar uma conta gratuita de desenvolvedor na plataforma da [HubSpot](https://app.hubspot.com/login).
 4. Criar um aplicativo público com base na documentação da [HubSpot](https://developers.hubspot.com/docs/guides/apps/public-apps/overview).
 
-### Configuração do Ambiente
+## Configuração do Ambiente
 
-#### Variáveis de Ambiente
+### Variáveis de Ambiente
 
 1. Após concluir a criação do seu aplicativo público na plataforma da HubSpot, clique nele.
 2. Acesse a opção **"Informações básicas"** listada na lateral.
@@ -56,7 +56,9 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 14. Clique em **Aplicar** e depois em **OK** para finalizar a configuração.
 15. Após isso, reinicie a máquina para garantir que as variáveis de ambiente sejam capturadas pelo sistema operacional.
 
-#### Ngrok
+---
+
+### Ngrok
 
 Após criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/), conforme indicado nos passos iniciais, vamos iniciar a instalação e configuração do ngrok na nossa máquina.
 
@@ -78,13 +80,20 @@ Após criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/), con
    ![Imagem Exemplo](Documentation/Images/img9.png)
    ![Imagem Exemplo](Documentation/Images/img10.png)
 9. Após copiar o comando, volte para o **PowerShell** e cole o comando copiado.
+
 10. Pressione **Enter**. Se tudo estiver correto, você verá uma mensagem de sucesso confirmando que o token foi salvo na sua máquina. Caso contrário, verifique se o comando foi copiado e colado corretamente.
+
 11. Por fim, iremos executar o ngrok. Para isso digite o seguinte comando: "& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout".
+
 12. Ao digitar o comando, pressione Enter. Você deverá ver algo semelhante a isso:
 ![Imagem Exemplo](Documentation/Images/img11.png)
 IMPORTANTE: Atente-se ao caminho do seu ngrok. Se você observar, para o comando funcionar você precisa fornecer a localização exata do seu ngrok em sua máquina, do contrário o comando não irá rodar o ngrok. No meu caso, o ngrok está localizado em C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe.
+
 13. Feito isso, o ngrok agora estará rodando em sua máquina.
+
 IMPORTANTE: Após executar o último comando, não feche o PowerShell ou aperte Ctrl+C. O ngrok só cria o túnel de acesso à máquina local durante sua execução. Então, caso você feche o PowerShell ou interrompa o processo de execução do ngrok com Ctrl+C, será necessário executar novamente o comando:
+
+---
 
 ### HubSpot - Aplicativo Público
 
