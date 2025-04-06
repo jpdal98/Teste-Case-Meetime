@@ -12,13 +12,13 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 
 ## Tecnologias Usadas
 
-- **Spring Boot**: Framework para construção de aplicações Java baseadas em Spring.
+- **Spring Boot**: Framework utilizado para construção de aplicações Java baseadas em Spring.
 - **Bean Validation**: Usado para validar as entradas da API, garantindo que os dados recebidos nos endpoints estejam no formato correto e sigam as regras definidas.
 - **WebFlux**: Usado para realizar chamadas assíncronas à API do HubSpot.
 - **Jackson**: Usado para manipulação de JSON.
 - **Lombok**: Usado para reduzir a verbosidade do código, gerando automaticamente getters, setters, etc.
 - **Maven**: Usado para gerenciar as dependências da aplicação.
-- **Ngrok**: Usado para criar um canal de comunicação entre o HubSpot e a máquina local, tratando ela como um servidor na nuvem.
+- **Ngrok**: Usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
 
 ## Instruções para Execução
 
@@ -28,6 +28,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 2. Criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/).
 3. Criar uma conta gratuita de desenvolvedor na plataforma da [HubSpot](https://app.hubspot.com/login).
 4. Criar um aplicativo público com base na documentação da [HubSpot](https://developers.hubspot.com/docs/guides/apps/public-apps/overview).
+5. Instalar algum ferramente de consumo de API. Sugestão: [Postman](https://www.postman.com/downloads/).
 
 ## Configuração do Ambiente
 
@@ -56,8 +57,6 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 14. Clique em **Aplicar** e depois em **OK** para finalizar a configuração.
 15. Após isso, reinicie a máquina para garantir que as variáveis de ambiente sejam capturadas pelo sistema operacional.
 
----
-
 ### Ngrok
 
 Após criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/), conforme indicado nos passos iniciais, vamos iniciar a instalação e configuração do ngrok na nossa máquina.
@@ -83,17 +82,15 @@ Após criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/), con
 
 10. Pressione **Enter**. Se tudo estiver correto, você verá uma mensagem de sucesso confirmando que o token foi salvo na sua máquina. Caso contrário, verifique se o comando foi copiado e colado corretamente.
 
-11. Por fim, iremos executar o ngrok. Para isso digite o seguinte comando: "& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout".
+11. Por fim, iremos executar o ngrok. Para isso digite o seguinte comando: `"& "C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe" http 8080 --log=stdout"`.
 
 12. Ao digitar o comando, pressione Enter. Você deverá ver algo semelhante a isso:
 ![Imagem Exemplo](Documentation/Images/img11.png)
-IMPORTANTE: Atente-se ao caminho do seu ngrok. Se você observar, para o comando funcionar você precisa fornecer a localização exata do seu ngrok em sua máquina, do contrário o comando não irá rodar o ngrok. No meu caso, o ngrok está localizado em C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe.
+**IMPORTANTE**: Atente-se ao caminho do seu ngrok. Se você observar, para o comando funcionar você precisa fornecer a localização exata do seu ngrok em sua máquina, do contrário o comando não irá rodar o ngrok. No meu caso, o ngrok está localizado em C:\Users\User\Documents\João Pedro\Pessoal\ngrok.exe.
 
 13. Feito isso, o ngrok agora estará rodando em sua máquina.
 
-IMPORTANTE: Após executar o último comando, não feche o PowerShell ou aperte Ctrl+C. O ngrok só cria o túnel de acesso à máquina local durante sua execução. Então, caso você feche o PowerShell ou interrompa o processo de execução do ngrok com Ctrl+C, será necessário executar novamente o comando:
-
----
+**IMPORTANTE**: Após executar o último comando, não feche o PowerShell ou aperte Ctrl+C. O ngrok só cria o túnel de acesso à máquina local durante sua execução. Então, caso você feche o PowerShell ou interrompa o processo de execução do ngrok com Ctrl+C, será necessário executar novamente o comando:
 
 ### HubSpot - Aplicativo Público
 
@@ -143,8 +140,88 @@ Após ter configurado o ngrok localmente, iremos configurar o nosso aplicativo p
 
 **IMPORTANTE**: Caso você tenha fechado o PowerShell e perdido a URL do ngrok e precise alterar a URL no seu aplicativo, você precisa primeiro pausar a assinatura. Só assim o HubSpot permitirá a alteração da URL. Para isso, selecione a caixa de diálogo ao lado da palavra **"Contato"**. Ao fazer isso, aparecerão as opções **"Ativar"** e **"Pausar"**. Clique em **"Pausar"**. Feito isso, você poderá alterar a URL. Após alterar, clique em **Ativar** novamente para restabelecer a função do seu aplicativo de monitoramento.
 
----
-
 ### HubSpot - Conta de Teste
 
 Para conseguirmos visualizar que estamos conseguindo criar os contatos, precisamos ter uma conta de teste responsável por listar os contatos criados. Para isso, iremos criar uma conta de teste de desenvolvedor.
+
+1. Para isso, acesse a seguinte opção localizada no menu à esquerda da página:
+   ![Imagem Exemplo](Documentation/Images/img21.png)
+2. Ao acessar esta opção, você se deparará com a seguinte tela. Clique no botão **"Criar uma conta de teste de desenvolvedor"**.
+   ![Imagem Exemplo](Documentation/Images/img22.png)
+3. Ao clicar no botão, aparecerá um pop-up. Nesse pop-up, você irá denominar um nome para sua conta de teste.
+   ![Imagem Exemplo](Documentation/Images/img23.png)
+4. Feito isso, clique em **"Criar"**.
+5. Prontinho! Agora temos todo o ambiente configurado para executarmos nossa API!
+
+---
+
+## Execução da API
+
+Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
+
+1. Após concluir todos os passos anteriores, baixe o projeto e importe-o para a sua IDE.
+2. Feito isso, rode o projeto.
+   
+   **IMPORTANTE**: Não esqueça, **não pode fechar o PowerShell**. Caso o feche, o ngrok não será executado. Se você tiver fechado o PowerShell, abra-o novamente e execute os passos descritos anteriormente para executá-lo e configurar a URL na aba de webhooks do seu aplicativo.
+   
+3. Com a aplicação executando, vá até seu navegador e acesse a URL: `http://localhost:8080/api/hubspot/authorize`.
+4. Em seguida, aperte **Enter**. Deverá aparecer a seguinte tela:
+   ![Imagem Exemplo](Documentation/Images/img24.png)
+5. Agora selecione a conta de teste que você criou.
+6. Em seguida, clique em **"Escolher conta"**.
+   ![Imagem Exemplo](Documentation/Images/img25.png)
+7. Ao fazer isso, a aplicação lhe encaminhará para esta tela:
+   ![Imagem Exemplo](Documentation/Images/img26.png)
+8. Agora, clique no botão **"Conectar aplicativo"**. Ele dará acesso à sua conta de teste ao seu aplicativo da HubSpot.
+9. Em seguida, a aplicação irá gerar um token de acesso:
+   ![Imagem Exemplo](Documentation/Images/img27.png)
+10. Copie este token.
+
+   **IMPORTANTE**: Quando for copiar o token, caso apareça um `\` no final do token, **não o copie**. Esse caractere é apenas um delimitador e não faz parte do token em si, mesmo estando dentro das aspas onde o token está.
+
+11. Agora, abra o seu **Postman**.
+12. Crie uma requisição do tipo **POST**.
+13. Em seguida, faça a seguinte configuração na requisição, como nas imagens a seguir:
+   
+   13.1. Copie e cole na URL da sua requisição o seguinte caminho: `http://localhost:8080/api/hubspot/create-contact`.
+   
+   13.2. Acesse a aba **"Headers"**. Como mostrado na imagem, você irá criar duas chaves para seu cabeçalho (**Authorization** e **Content-Type**). Na chave **"Authorization"**, coloque o token gerado no campo **value**. Já na chave **"Content-Type"**, você irá colocar o valor como `application/json`:
+   ![Imagem Exemplo](Documentation/Images/img33.png)
+
+   13.3. Agora, clique na aba **"Body"**.
+   
+   13.4. Em seguida, clique em **"raw"**.
+   
+   13.5. Na mesma linha, na última opção, clique e escolha a opção **"JSON"**.
+   
+   13.6. Agora crie um **JSON** que passe as informações necessárias para criar um contato. Exemplo:
+   
+   ```json
+   {
+       "firstName": "marcos",
+       "lastName": "paulo",
+       "email": "marcos.doe@example.com"
+   }
+ ```
+   ![Imagem Exemplo](Documentation/Images/img34.png)
+14. Feito isso, clique no botão **"Send"** para disparar a função de criar contato.
+15. Agora, acesse sua conta de teste para validarmos se o contato foi criado.
+16. Para isso, volte até a plataforma da HubSpot e acesse a seguinte opção localizada no menu à esquerda da página:
+   ![Imagem Exemplo](Documentation/Images/img21.png)
+17. Você verá a conta que criamos anteriormente. Agora, basta clicar nela que você será redirecionado para a página da sua conta de teste.
+18. Quando estiver na tela da sua conta de teste, acesse a opção **CRM > Contatos**, localizada no menu à esquerda da página:
+   ![Imagem Exemplo](Documentation/Images/img32.png)
+19. Ao acessar essa opção, você verá que seu contato foi criado.
+   ![Imagem Exemplo](Documentation/Images/img35.png)
+20. Feito isso, voltaremos para nosso aplicativo para validarmos se ele monitorou a criação de contato e se validou a assinatura que autorizava executarmos essa função pela nossa API.
+21. Para isso, acesse a opção **Monitoramento** listada à esquerda:
+   ![Imagem Exemplo](Documentation/Images/img36.png)
+22. Ao acessar, você logo de cara verá uma lista que mostrará todas as chamadas realizadas ao nosso aplicativo. Dentre elas, estará nossa requisição que fizemos no Postman para tentar criar o contato:
+   ![Imagem Exemplo](Documentation/Images/img28.png)
+23. Em seguida, vamos validar se o **Webhook** monitorou essa tentativa de criar o contato e se ele validou a assinatura da máquina que tentou executar essa função. Para isso, clique na aba **Webhooks**:
+   ![Imagem Exemplo](Documentation/Images/img37.png)
+24. Como pode ser observado, foi tudo um sucesso. O webhook não só detectou a tentativa como também validou a assinatura de quem tentou criar o contato, no caso, nossa API:
+   ![Imagem Exemplo](Documentation/Images/img29.png)
+25. Para acessar mais detalhes relacionados ao processo que o webhook monitorou, basta clicar no item listado:
+   ![Imagem Exemplo](Documentation/Images/img30.png)
+   ![Imagem Exemplo](Documentation/Images/img31.png)
