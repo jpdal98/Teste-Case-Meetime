@@ -126,12 +126,12 @@ Após ter configurado o ngrok localmente, iremos configurar o nosso aplicativo p
 21. Ao clicar nele, irá aparecer para você a seguinte aba:
 ![Imagem Exemplo](Documentation/Images/img18.png)
 
-22. Nela iremos escolher qual objeto queremos e ação queremos que o webhook monitore. Como estamos lidando com criação de contatos, escolheremos no primeiro campo a opção "contato" e no segundo campo a opção "criado"
+22. Nela iremos escolher qual objeto queremos e ação queremos que o webhook monitore. Como estamos lidando com criação de contatos, escolheremos no primeiro campo a opção "contato" e no segundo campo a opção "criado".
 ![Imagem Exemplo](Documentation/Images/img19.png)
 
-23. Agora clique em assinar. Feito isso, sua tela estará assim:
+24. Agora clique em assinar. Feito isso, sua tela estará assim:
 ![Imagem Exemplo](Documentation/Images/img20.png)
-24. Agora selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique clique em "ativar". Feito isso, seu aplicativo agora passará a monitorar eventos relacionados a criação de contato.
+25. Agora selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique clique em "ativar". Feito isso, seu aplicativo agora passará a monitorar eventos relacionados a criação de contato.
 
 **IMPORTANTE**: Caso voce tenha fechado o powershell e perdido a url do ngrok e precise mudar a url que está no seu aplicativo, voce primeiro precisa pausar a assinatura. Só assim o Hubspot permite com que você a url. Para isso selecione a caixa de dialogo ao lado da palavra "Contato". Ao fazer isso, irá aparecer as opções "ativar" e "pausar". Clique em "pausar". Feito isso voce poderá alterar a url. Ao alterar a url, clique em ativar novamente para restabelecer a função do seu aplicativo de monitoramento
 
