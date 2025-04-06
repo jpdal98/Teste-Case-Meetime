@@ -5,6 +5,7 @@ import com.hubspot.integration.config.HubSpotConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -21,29 +22,31 @@ public class SignatureService {
         this.hubSpotProperties = hubSpotProperties;
     }
 
-    public boolean isValidSignature(String requestBody, String receivedSignature, String method, String uri, String timestamp) {
-        try {
-            long currentTime = System.currentTimeMillis();
-            long timestampLong = Long.parseLong(timestamp);
+    public Mono<Boolean> isValidSignature(String requestBody, String receivedSignature, String method, String uri, String timestamp) {
+        return Mono.defer(() -> {
+            try {
+                long currentTime = System.currentTimeMillis();
+                long timestampLong = Long.parseLong(timestamp);
 
-            // Verificando validade do timestamp da requisição
-            if ((currentTime - timestampLong) > HubSpotConstants.MAX_ALLOWED_TIMESTAMP) {
-                log.warn("Timestamp do webhook é inválido. timestamp={}, currentTime={}", timestamp, currentTime);
-                return false;
+                // Verificando validade do timestamp da requisição
+                if ((currentTime - timestampLong) > HubSpotConstants.MAX_ALLOWED_TIMESTAMP) {
+                    log.warn("Timestamp do webhook é inválido. timestamp={}, currentTime={}", timestamp, currentTime);
+                    return Mono.just(false);
+                }
+
+                // Montando string que será convertida
+                String dataToSign = method + uri + requestBody + timestamp;
+
+                String calculatedSignature = calculateHmacSignature(dataToSign);
+
+                // Realiza comparação temporizada entre as assinaturas
+                return Mono.just(timingSafeCompare(calculatedSignature, receivedSignature));
+
+            } catch (Exception e) {
+                log.error("Erro ao validar a assinatura do webhook", e);
+                return Mono.just(false);
             }
-
-            // Montando string que será convertida
-            String dataToSign = method + uri + requestBody + timestamp;
-
-            String calculatedSignature = calculateHmacSignature(dataToSign);
-
-            // Realiza comparação temporizada entre as assinaturas
-            return timingSafeCompare(calculatedSignature, receivedSignature);
-
-        } catch (Exception e) {
-            log.error("Erro ao validar a assinatura do webhook", e);
-            return false;
-        }
+        });
     }
 
     // Metodo responsável por calcular a assinatura HMAC-SHA256.

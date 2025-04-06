@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
@@ -85,31 +86,42 @@ public class HubSpotController {
     }
 
     @PostMapping("/webhook")
-    public ResponseEntity<ApiResponse<?>> receiveWebhook(
+    public Mono<ResponseEntity<ApiResponse<?>>> receiveWebhook(
             @RequestBody List<Map<String, Object>> payload,
             @RequestHeader(HubSpotConstants.SIGNATURE_HEADER) String signature,
             @RequestHeader(HubSpotConstants.TIMESTAMP_HEADER) String timestamp,
             HttpServletRequest request) {
 
+        // Verificando se os cabeçalhos obrigatórios estão presentes
         if (signature == null || timestamp == null) {
-            return ResponseEntity.badRequest().body(ApiResponse.error("Faltando cabeçalhos obrigatórios."));
+            return Mono.just(ResponseEntity
+                    .badRequest()
+                    .body(ApiResponse.error("Faltando cabeçalhos obrigatórios.")));
         }
 
-        try {
-            String method = request.getMethod();
-            String host = request.getHeader("Host");
-            String uri = "https://" + host + request.getRequestURI();
-            String payloadJson = objectMapper.writeValueAsString(payload);
+        return Mono.defer(() -> {
+            try {
+                String method = request.getMethod();
+                String host = request.getHeader("Host");
+                String uri = "https://" + host + request.getRequestURI();
+                String payloadJson = objectMapper.writeValueAsString(payload);
 
-            if (signatureService.isValidSignature(payloadJson, signature, method, uri, timestamp)) {
-                return ResponseEntity.ok(ApiResponse.ok("Webhook processado com sucesso"));
-            } else {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error(
-                        "Assinatura inválida"));
+                return signatureService.isValidSignature(payloadJson, signature, method, uri, timestamp)
+                        .flatMap(isValid -> {
+                            if (isValid) {
+                                return Mono.just(ResponseEntity.ok(ApiResponse.ok("Webhook processado com sucesso")));
+                            } else {
+                                return Mono.just(ResponseEntity
+                                        .status(HttpStatus.UNAUTHORIZED)
+                                        .body(ApiResponse.error("Assinatura inválida")));
+                            }
+                        });
+
+            } catch (Exception e) {
+                return Mono.just(ResponseEntity
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body(ApiResponse.error("Erro ao processar webhook: " + e.getMessage())));
             }
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError()
-                    .body(ApiResponse.error("Erro ao processar webhook: " + e.getMessage()));
-        }
+        });
     }
 }
