@@ -4,6 +4,18 @@
 
 Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** para autenticação e **Webhooks** para receber atualizações sobre eventos do HubSpot. Ele permite a criação de contatos no HubSpot e valida a assinatura dos webhooks recebidos para garantir a autenticidade das requisições.
 
+## Índice
+
+1. [Funcionalidades](#funcionalidades)
+2. [Tecnologias Usadas](#tecnologias-usadas)
+3. [Configuração do ambiente](#configuração-do-ambiente)
+   - [Requisitos Iniciais](#requisitos-iniciais)
+   - [Variáveis de Ambiente](#variáveis-de-ambiente)
+   - [Ngrok](#ngrok)
+   - [HubSpot - Aplicativo Público](#hubspot---aplicativo-público)
+   - [HubSpot - Conta de Teste](#hubspot---conta-de-teste)
+4. [Execução da API](#execução-da-api)
+
 ## Funcionalidades
 
 - **Autenticação OAuth2**: O projeto utiliza OAuth2 para autenticação com a API do HubSpot.
@@ -20,7 +32,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 - **Maven**: Usado para gerenciar as dependências da aplicação.
 - **Ngrok**: Usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
 
-## Instruções para Execução
+## Configuração do ambiente
 
 ### Requisitos Iniciais
 
@@ -29,8 +41,6 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 3. Criar uma conta gratuita de desenvolvedor na plataforma da [HubSpot](https://app.hubspot.com/login).
 4. Criar um aplicativo público com base na documentação da [HubSpot](https://developers.hubspot.com/docs/guides/apps/public-apps/overview).
 5. Instalar algum ferramente de consumo de API. Sugestão: [Postman](https://www.postman.com/downloads/).
-
-## Configuração do Ambiente
 
 ### Variáveis de Ambiente
 
@@ -193,6 +203,8 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
    13.4. Em seguida, clique em **"raw"**.
    
    13.5. Na mesma linha, na última opção, clique e escolha a opção **"JSON"**.
+
+   ![Imagem Exemplo](Documentation/Images/img34.png)
    
    13.6. Agora crie um **JSON** que passe as informações necessárias para criar um contato. Exemplo:
    
@@ -203,14 +215,16 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
        "email": "marcos.doe@example.com"
    }
  ```
-   ![Imagem Exemplo](Documentation/Images/img34.png)
 14. Feito isso, clique no botão **"Send"** para disparar a função de criar contato.
 15. Agora, acesse sua conta de teste para validarmos se o contato foi criado.
 16. Para isso, volte até a plataforma da HubSpot e acesse a seguinte opção localizada no menu à esquerda da página:
    ![Imagem Exemplo](Documentation/Images/img21.png)
 17. Você verá a conta que criamos anteriormente. Agora, basta clicar nela que você será redirecionado para a página da sua conta de teste.
+
 18. Quando estiver na tela da sua conta de teste, acesse a opção **CRM > Contatos**, localizada no menu à esquerda da página:
+    
    ![Imagem Exemplo](Documentation/Images/img32.png)
+   
 19. Ao acessar essa opção, você verá que seu contato foi criado.
    ![Imagem Exemplo](Documentation/Images/img35.png)
 20. Feito isso, voltaremos para nosso aplicativo para validarmos se ele monitorou a criação de contato e se validou a assinatura que autorizava executarmos essa função pela nossa API.
