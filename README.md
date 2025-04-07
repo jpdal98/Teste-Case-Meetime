@@ -30,7 +30,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 - **WebFlux**: Biblioteca utilizada para realizar chamadas assíncronas à API do HubSpot.
 - **Jackson**: Biblioteca utilizada para manipulação de JSON.
 - **Lombok**: Biblioteca utilizada para reduzir a verbosidade do código, gerando automaticamente getters, setters, etc.
-- **Maven**: Biblioteca utilizada para gerenciar as dependências da API.
+- **Maven**: Usado para gerenciar as dependências da API.
 - **Ngrok**: Biblioteca utilizada para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
 
 ## Configuração do ambiente
