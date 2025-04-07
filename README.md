@@ -254,11 +254,14 @@ Atualmente, não há uma documentação visível da API. Pensando em um possíve
 Exemplo: No caso do projeto atual, talvez no futuro seja necessário modularizar ainda mais a API, separando as responsabilidades de forma mais detalhada. Isso pode incluir mover SignatureService, OAuthService e ContactService para pacotes separados com interfaces e implementações distintas.
 
 ### 3. Testes Automatizados
-Não há menção de testes automatizados no projeto. Essa decisão foi tomada devido ao fato de o projeto ser pequeno. Contudo, à medida que o projeto crescer, seria interessante implementar testes unitários e testes de integração. Ambos ajudariam a garantir que a lógica da API permanecesse sólida e funcional.
+Não há testes automatizados no projeto. Essa decisão foi tomada devido ao fato de o projeto ser pequeno. Contudo, à medida que o projeto crescer, seria interessante implementar testes unitários e testes de integração. Ambos ajudariam a garantir que a lógica da API permanecesse sólida e funcional.
 
 ### 4. Respostas de erro mais especificas e informativas
 Apesar do projeto ter uma classe global que captura os erros e os informa ao usuário, ela ainda é bem genérica. O ideal seria expandir essa classe para capturar uma variedade maior de erros, com mensagens personalizadas mais detalhadas e informativas, proporcionando uma experiência mais clara e útil para o usuário.
 
-### 5. Segurança da API (Autenticação e Autorização)
+### 5. Servidor na nuvem
+O projeto atual não foi implantado em um servidor na nuvem. Essa decisão foi tomada por se tratar de um projeto pequeno. Contudo, caso a API venha crescer, será necessário utilizar, não só pela variedade de serviçoes que um servidor na nuvem fornece, como tambem tirar a necessidade de montar a URL de Webhooks sempre que quiser rodar a API e testar a funcionalidade.
+
+### 6. Segurança da API (Autenticação e Autorização)
 Por se tratar de um projeto que só permite o uso das suas funções principais (como /create-contact e /webhooks) através de um token validado em uma plataforma externa (HubSpot), não se viu a necessidade de implementar o Spring Security na API. Contudo, essa decisão pode mudar dependendo do crescimento e da evolução das necessidades da API no futuro.
 
