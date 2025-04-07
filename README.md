@@ -30,7 +30,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 - **WebFlux**: Usado para realizar chamadas assíncronas à API do HubSpot.
 - **Jackson**: Usado para manipulação de JSON.
 - **Lombok**: Usado para reduzir a verbosidade do código, gerando automaticamente getters, setters, etc.
-- **Maven**: Usado para gerenciar as dependências da aplicação.
+- **Maven**: Usado para gerenciar as dependências da API.
 - **Ngrok**: Usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
 
 ## Configuração do ambiente
@@ -72,7 +72,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 
 Após criar uma conta gratuita na plataforma do [ngrok](https://ngrok.com/), conforme indicado nos passos iniciais, vamos iniciar a instalação e configuração do ngrok na nossa máquina.
 
-**IMPORTANTE**: Durante o processo de download e instalação do ngrok, será necessário desabilitar o antivírus, caso você tenha um, ou criar uma exceção para o ngrok. Isso ocorre porque muitos antivírus interpretam o ngrok como uma ferramenta maliciosa. Isso se deve ao fato de que, em algumas situações, hackers usam o ngrok para criar túneis de acesso remoto à máquina da vítima. No entanto, para a nossa aplicação, o ngrok será utilizado de maneira legítima, sem qualquer viés de ataque. O ngrok é extremamente útil para testes de APIs, webhooks e desenvolvimento remoto. No nosso caso, ele será usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot, permitindo a comunicação com a HubSpot, que não aceita a rota "localhost" para validação de webhooks.
+**IMPORTANTE**: Durante o processo de download e instalação do ngrok, será necessário desabilitar o antivírus, caso você tenha um, ou criar uma exceção para o ngrok. Isso ocorre porque muitos antivírus interpretam o ngrok como uma ferramenta maliciosa. Isso se deve ao fato de que, em algumas situações, hackers usam o ngrok para criar túneis de acesso remoto à máquina da vítima. No entanto, para a nossa API, o ngrok será utilizado de maneira legítima, sem qualquer viés de ataque. O ngrok é extremamente útil para testes de APIs, webhooks e desenvolvimento remoto. No nosso caso, ele será usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot, permitindo a comunicação com a HubSpot, que não aceita a rota "localhost" para validação de webhooks.
 
 1. Baixe o [ngrok](https://ngrok.com/downloads/windows).
 2. Após o download, conceda permissão ao antivírus ou desative-o temporariamente. Extraia o arquivo `.zip` baixado.
@@ -175,16 +175,16 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
    
    **IMPORTANTE**: Não esqueça, **não pode fechar o PowerShell**. Caso o feche, o ngrok não será executado. Se você tiver fechado o PowerShell, abra-o novamente e execute os passos descritos anteriormente para executá-lo e configurar a URL na aba de webhooks do seu aplicativo.
    
-3. Com a aplicação executando, vá até seu navegador e acesse a URL: `http://localhost:8080/api/hubspot/authorize`.
+3. Com a API executando, vá até seu navegador e acesse a URL: `http://localhost:8080/api/hubspot/authorize`.
 4. Em seguida, aperte **Enter**. Deverá aparecer a seguinte tela:
    ![Imagem Exemplo](Documentation/Images/img24.png)
 5. Agora selecione a conta de teste que você criou.
 6. Em seguida, clique em **"Escolher conta"**.
    ![Imagem Exemplo](Documentation/Images/img25.png)
-7. Ao fazer isso, a aplicação lhe encaminhará para esta tela:
+7. Ao fazer isso, a API lhe encaminhará para esta tela:
    ![Imagem Exemplo](Documentation/Images/img26.png)
 8. Agora, clique no botão **"Conectar aplicativo"**. Ele dará acesso à sua conta de teste ao seu aplicativo da HubSpot.
-9. Em seguida, a aplicação irá gerar um token de acesso:
+9. Em seguida, a HubSpot irá gerar um token de acesso:
    ![Imagem Exemplo](Documentation/Images/img27.png)
 10. Copie este token.
 
@@ -228,12 +228,12 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
    
 19. Ao acessar essa opção, você verá que seu contato foi criado.
    ![Imagem Exemplo](Documentation/Images/img35.png)
-20. Feito isso, voltaremos para nosso aplicativo para validarmos se ele monitorou a criação de contato e se validou a assinatura que autorizava executarmos essa função pela nossa API.
+20. Feito isso, voltaremos para nosso aplicativo para validarmos se ele monitorou a criação de contato e se validou a assinatura da API que tentou executar essa função.
 21. Para isso, acesse a opção **Monitoramento** listada à esquerda:
    ![Imagem Exemplo](Documentation/Images/img36.png)
 22. Ao acessar, você logo de cara verá uma lista que mostrará todas as chamadas realizadas ao nosso aplicativo. Dentre elas, estará nossa requisição que fizemos no Postman para tentar criar o contato:
    ![Imagem Exemplo](Documentation/Images/img28.png)
-23. Em seguida, vamos validar se o **Webhook** monitorou essa tentativa de criar o contato e se ele validou a assinatura da máquina que tentou executar essa função. Para isso, clique na aba **Webhooks**:
+23. Em seguida, vamos validar se o **Webhook** monitorou essa tentativa de criar o contato e se ele validou a assinatura da API que tentou executar essa função. Para isso, clique na aba **Webhooks**:
    ![Imagem Exemplo](Documentation/Images/img37.png)
 24. Como pode ser observado, foi tudo um sucesso. O webhook não só detectou a tentativa como também validou a assinatura de quem tentou criar o contato, no caso, nossa API:
    ![Imagem Exemplo](Documentation/Images/img29.png)
@@ -248,10 +248,10 @@ Atualmente, não há uma documentação visível da API. Pensando em um possíve
 
 ### 2. Organização e Modularização
 À medida que o projeto crescer, pode ser necessário refatorar algumas responsabilidades para diferentes módulos ou pacotes a fim de manter o código limpo e organizado.
-Exemplo: No caso do projeto atual, talvez no futuro seja necessário modularizar ainda mais a aplicação, separando as responsabilidades de forma mais detalhada. Isso pode incluir mover SignatureService, OAuthService e ContactService para pacotes separados com interfaces e implementações distintas.
+Exemplo: No caso do projeto atual, talvez no futuro seja necessário modularizar ainda mais a API, separando as responsabilidades de forma mais detalhada. Isso pode incluir mover SignatureService, OAuthService e ContactService para pacotes separados com interfaces e implementações distintas.
 
 ### 3. Testes Automatizados
-Não há menção de testes automatizados no projeto. Essa decisão foi tomada devido ao fato de o projeto ser pequeno. Contudo, à medida que o projeto crescer, seria interessante implementar testes unitários e testes de integração. Ambos ajudariam a garantir que a lógica da aplicação permanecesse sólida e funcional.
+Não há menção de testes automatizados no projeto. Essa decisão foi tomada devido ao fato de o projeto ser pequeno. Contudo, à medida que o projeto crescer, seria interessante implementar testes unitários e testes de integração. Ambos ajudariam a garantir que a lógica da API permanecesse sólida e funcional.
 
 ### 4. Respostas de erro mais especificas e informativas
 Apesar do projeto ter uma classe global que captura os erros e os informa ao usuário, ela ainda é bem genérica. O ideal seria expandir essa classe para capturar uma variedade maior de erros, com mensagens personalizadas mais detalhadas e informativas, proporcionando uma experiência mais clara e útil para o usuário.
