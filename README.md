@@ -247,7 +247,7 @@ Agora vamos ao que interessa, que é ver essa belezinha funcionando!!
 ## Melhorias Futuras:
 
 ### 1. Documentação da API
-Atualmente, não há uma documentação visível da API. Pensando em um possível crescimento dela, o ideal seria utilizar ferramentas como Swagger ou Spring REST Docs para gerar uma documentação interativa da API. Isso ajudaria os desenvolvedores a entenderem melhor os endpoints disponíveis e como interagir com eles.
+Pensando em um possível crescimento dela, o ideal seria utilizar ferramentas como Swagger ou Spring REST Docs para gerar uma documentação interativa da API. Isso ajudaria os desenvolvedores a entenderem melhor os endpoints disponíveis e como interagir com eles.
 
 ### 2. Organização e Modularização
 À medida que o projeto crescer, pode ser necessário refatorar algumas responsabilidades para diferentes módulos ou pacotes a fim de manter o código limpo e organizado.
