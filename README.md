@@ -64,9 +64,11 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 11. Clique em **OK**.
 12. Repita o processo para criar a variável **HUBSPOT_CLIENT_SECRET**, usando o valor indicado na interface da HubSpot.
    ![Imagem Exemplo](Documentation/Images/img5.png)
-13. Clique em **OK** novamente para fechar a janela de variáveis de ambiente.
-14. Clique em **Aplicar** e depois em **OK** para finalizar a configuração.
-15. Após isso, reinicie a máquina para garantir que as variáveis de ambiente sejam capturadas pelo sistema operacional.
+13. Feito isso, Clique em **OK**.
+14. Agora repita novamente o processo. Dessa vez em **"Variáveis do sistema"**.
+15. Após concluir a criação das variáveis em **"Variáveis do sistema"**, clique em **OK** para fechar a janela de variáveis de ambiente.
+17. Clique em **Aplicar** e depois em **OK** para finalizar a configuração.
+18. Após isso, reinicie a máquina para garantir que as variáveis de ambiente sejam capturadas pelo sistema operacional.
 
 ### Ngrok
 
