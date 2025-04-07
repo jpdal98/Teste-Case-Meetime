@@ -7,7 +7,7 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 ## Índice
 
 1. [Funcionalidades](#funcionalidades)
-2. [Tecnologias Usadas](#tecnologias-usadas)
+2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
 3. [Configuração do ambiente](#configuração-do-ambiente)
    - [Requisitos Iniciais](#requisitos-iniciais)
    - [Variáveis de Ambiente](#variáveis-de-ambiente)
@@ -23,15 +23,15 @@ Este projeto é uma API para integração com o HubSpot, utilizando **OAuth2** p
 - **Criação de Contatos**: Permite criar contatos no HubSpot usando a API.
 - **Validação de Webhooks**: Valida a assinatura dos webhooks recebidos, garantindo que são enviados pela HubSpot.
 
-## Tecnologias Usadas
+## Tecnologias Utilizadas
 
 - **Spring Boot**: Framework utilizado para construção de aplicações Java baseadas em Spring.
-- **Bean Validation**: Usado para validar as entradas da API, garantindo que os dados recebidos nos endpoints estejam no formato correto e sigam as regras definidas.
-- **WebFlux**: Usado para realizar chamadas assíncronas à API do HubSpot.
-- **Jackson**: Usado para manipulação de JSON.
-- **Lombok**: Usado para reduzir a verbosidade do código, gerando automaticamente getters, setters, etc.
-- **Maven**: Usado para gerenciar as dependências da API.
-- **Ngrok**: Usado para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
+- **Bean Validation**: Biblioteca utilizada para validar as entradas da API, garantindo que os dados recebidos nos endpoints estejam no formato correto e sigam as regras definidas.
+- **WebFlux**: Biblioteca utilizada para realizar chamadas assíncronas à API do HubSpot.
+- **Jackson**: Biblioteca utilizada para manipulação de JSON.
+- **Lombok**: Biblioteca utilizada para reduzir a verbosidade do código, gerando automaticamente getters, setters, etc.
+- **Maven**: Biblioteca utilizada para gerenciar as dependências da API.
+- **Ngrok**: Biblioteca utilizada para criar um túnel seguro entre o nosso servidor local (localhost) e o servidor da HubSpot.
 
 ## Configuração do ambiente
 
